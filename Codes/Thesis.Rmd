@@ -1,0 +1,991 @@
+---
+title: ""
+author:
+  - Muhammet Özkaraca
+output:
+  pdf_document:
+    latex_engine: xelatex
+    number_sections: true
+geometry: "left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm"
+fontsize: 12 pt
+header-includes:
+    - \usepackage {ragged2e}
+    - \usepackage {titling}
+    - \usepackage[nottoc]{tocbibind} 
+    - \usepackage{float}
+    - \usepackage{sectsty}
+    - \usepackage{paralist}
+    - \usepackage{setspace}
+    - \usepackage{fancyhdr}
+    - \usepackage{lastpage}
+    - \usepackage{dcolumn}
+    - \usepackage{natbib}
+    - \usepackage{subcaption}
+    - \usepackage{rotating}
+    - \usepackage{placeins}
+bibliography: ["MAThesis-Proposal.bib"]
+nocite: |
+  "@zhuKableExtraConstructComplex2021", "@frederikRStudioAddinInsert2019", "@sandroVistimePrettyTimelines2021","@hlavacStargazerWellFormattedRegression2018"
+link-citations: true
+link-color: red
+urlcolor: blue
+biblio-style: apsr
+linestretch: 2
+ident: True
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+```
+
+
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+\vspace{3cm}
+
+\Large
+\doublespacing
+{\bf Secularism as an Antidote to Religious Terrorism: The Case of Turkey}
+
+\vspace{1cm}
+
+\normalsize
+\singlespacing
+By
+
+\vspace{0.5 cm}
+
+
+\normalsize
+{Muhammet Özkaraca}
+
+\vspace{3 cm}
+
+\doublespacing
+\normalsize
+Submitted to \\
+Central European University \\
+Department of Political Science
+
+
+\vspace{1 cm}
+
+\emph{In partial fulfillment of the requirement for the degree of Master of Arts} 
+
+\vspace{1 cm}
+
+Supervisor: Assoc. Prof. Matthijs Bogaards
+
+
+\vspace{1 cm}
+
+\emph{Vienna Austria} \\ 2021
+
+\end{centering}
+
+
+
+\newpage
+\cleardoublepage
+\pagenumbering{roman}
+
+\begin{centering}
+
+{\bf Abstract}
+
+\end{centering}
+
+\spacing{2}
+
+$\qquad$ The emergence of the Islamic State and Salafi extremist organizations has resulted in an increase in religious terrorism around the world. While contemporary attacks appear to be exclusive to the Middle East and connected with a particular religious understanding, the Salafi-Extremist interpretation of Islam, the origins of religious terrorism reach far back and are related with a number of theological judgments. In this regard, this study provides a novel approach on the origins of religious terrorism and how to combat it. It argues that constitutionally recognized secular principles are vital for preventing religious terror organizations by ensuring religious groups' freedom to practice their own way of life. This is based on the hypothesis that religious organizations no longer need to resort to violence to maintain or practice their beliefs as the breeding ground for potential extremist groups is stifled by this way. To test this claim, a cross-country study using negative binomial regression is conducted. After adjusting the impact of secularism with several controlling variables, the statistical findings partially corroborate the initial assumption. Following this, an in-depth case study of Turkey sheds light on how constitutionally recognized secular principles avert religious extremism. Thus, this study contributes to the existing literature by by demonstrating the clear advantage that secular democracies retain in the face of religious terrorism.
+
+\newpage
+\cleardoublepage
+\pagenumbering{roman}
+
+\begin{centering}
+
+{\bf Acknowledgements}
+
+\end{centering}
+
+\spacing{2}
+
+$\qquad$ This has been a tough year for everyone. Throughout my master's studies at CEU, I acquired unique experience among a Coronavirus epidemic and future uncertainty. Clearly, there were heroes that stood with me the entire way, assisting me in making my narrative a reality. Therefore, I'd want to use this opportunity to express my gratitude to them.
+
+
+$\qquad$ In this regard, I would like first to express my gratitude to Matthijs Bogaards, the lecturer of the “Terrorism: A Comparative Perspective” course, who also supervised me throughout the process by providing feedback on early versions. I was able to complete this project despite its flaws as a result of the training he created and the comments he offered. I should not neglect to mention Zsuzsanna Toth at this point. Despite her caution not to submit drafts to review at the last minute, I couldn't break my tendency and sent her lately. She was very kind to review the draft for multiple times and inform me of any issues with the thesis's language. Finally, with regards to the thesis writing process and my overall CEU experience, I should express my gratitude to my colleagues and the staff at CEU's Pols department, whom I met only via Zoom sessions unfortunately but they made this thesis and my CEU learning experience far better than I could have imagined under these circumstances. 
+
+$\qquad$ Apart from thesis writing processes, there were people who supported me during this chaotic year and they also played an essential role for me to finish this thesis. The first person I should thank for this is Berk Esen who encouraged and supported me in my academic endeavors for the last couple of years tirelessly. In this regard, I should also express my gratitude to Levente Littvay and Mariyana Angelova for their continuous guidance and advise for my current projects and future plans. . 
+
+$\qquad$ Lastly, I should thank my thank my family for all their support through my academic career. Without them, I would not be where I am today.
+
+
+\newpage
+\setstretch{1}
+\tableofcontents 
+
+\newpage
+\setstretch{1}
+\listoffigures
+\listoftables
+
+\newpage
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\setstretch{2}
+# Introduction
+
+$\qquad$ The 9/11 terror attacks that were carried out by the Al-Qaeda organization and directed at the World Trade Center in New York City have stunned the world by the brutality that it inflicted upon civilian people. As a result of the incident, people all over the globe witnessed the unprecedented devastation that costed nearly 3000 lives, and has become the deadliest assault on the soils of the United States [@goldNewYorkCity2020]. Understandably, scholars of Political Science and International Relations have paid close attention to the incident. While the quantity of publications on the subject of terrorism has expanded drastically since the event, the gender diversity and geographical distribution of authors in more recent publications have also altered significantly in the aftermath of 9/11, resulting in substantial shifts in the field [@phillipsHowDid112021]. Yet, even though terrorism had not been a novel concept to many scholars before the 9/11 attacks, the reason why this incident generated such peculiar attention was veiled behind the means and goals of this new type of political violence that the 9/11 strikes resembled.
+
+$\qquad$ In this regard, while previous forms of political violence sought secular aims, this emergent kind of political aggression unexpectedly had theological objectives anchored on religious values and traditions formerly considered to be eradicating in the global sphere [@rapoportTerrorismGlobalWave2017]. Furthermore, the distinct goals of this new form of terrorism were not the sole distinction between it and prior types of political violence. In contrast to past manifestations, this unprecedented phenomenon considered everything that is not related to the faith itself as enmity to its own existence and launched a cosmic war correspondingly [@juergensmeyerReligiousTerrorSecular2004]. Although this new form promised its adherents a prosperous and secure future at the end of this struggle, it also advised them to endure obstacles on this path. To this end, all means necessary to accomplish tasks in this endeavor were deemed permissible, and its practitioners were urged to act accordingly [@juergensmeyerReligiousTerrorSecular2004]. The result was the emergence of a new subcategory of terrorism, characterized by its distinct motivations and methods from other forms of political violence. While this new type was dubbed Religious Terrorism and constituted one of the fundamental kinds in terrorism studies, the 9/11 strikes proved to be a watershed moment and served as one of the notable examples of faith-based violence since then [@juergensmeyerReligiousTerrorSecular2004].
+
+$\qquad$ Nonetheless, to understand religious terrorism, it is worth noting that its emergence came across at a moment when several intellectuals expected religion's role in social and political realms to decline [@greggDefiningDistinguishingSecular2014]. In this regard, it should be acknowledged that, prior to the rise of secular concepts which derive their legitimacy from non-religious grounds rather than divine sources of power, religious beliefs and practices played a critical role not only in regulating individuals’ personal lives but also in the relations inside and outside of countries [@bruceSecularisationPolitics2008]. Along with this situation, even individuals’ identities and legal frameworks within states were determined by the principles that were affiliated with religious notions. Juergensmeyer [-@juergensmeyerNewReligiousState1995] characterizes this period by referring to the concept of moral power in the right to kill people. According to him, prior to secular nationalism, religious ideas were essential in regulating the authority to kill people [@juergensmeyerNewReligiousState1995]. Yet, through the industrialization and modernization processes that accompanied the Enlightenment period in Western Europe, economically advanced nation-states began to substitute these religiously derived concepts with secular values in all spheres of everyday life. While this long-term process of declining religious authority was named secularization [@sommervilleSecularSocietyReligious1998], secularism is perceived as an ideology that strives to reduce religion's impact on public and private life [@castleSecularismPolitics2019].
+
+$\qquad$ In this respect, the scholars, the majority of whom are originated from Western countries and inspired by a long-established theory of secularization, anticipated to see similar breakdowns in the functioning of spiritual beliefs across developing and underdeveloped societies as these countries become more acquainted with modernization and rationalization [@bellahReligiousEvolution1964; @bergerSacredCanopyElements2011; @fennProcessSecularizationPostParsonian22; @luckmannStructuralConditionsReligious1979; @parsons1965HarlanPaul21; @tschannenSecularizationParadigmSystematization1991; @wilsonContemporaryTransformationsReligion1979]. These scholars contended that even though the pace in the diminishing role of religion across communities follows different pathways and steps, it corresponds to the level of modernization that these societies have undergone. As one of the recent representatives of this school of thought, Norris and Inglehart [-@norrisSacredSecularReligion2011] claim that religious faith serves as a coping strategy, and people who lack a firm sense of existential security are more inclined to maintain their religion while people who retain their lives in the security and wellbeing of an industrialized economy have less need for the psychological relief that faith provides. Thus, this line of inquiry predicated that as countries advanced in their modernization processes through industrialization and westernization, the role of religion in every aspect of daily life would diminish, and secular concepts would ultimately prevail.
+
+$\qquad$ Nevertheless, the course of events that the world witnessed during the last part of the century seemed to form a glaring contradiction with this theory. While some countries advanced economically and appeared to be westernized, the influence of religion in social and political life in these contexts did not vanish. Furthermore, even in some instances, the particular developments, likewise the Iranian Islamic Revolution, strengthened the role of religion. Juergensmeyer [-@juergensmeyerWorldwideRiseReligious1996a] argues that this was an inevitable consequence of globalization and its repercussions on people’s “loss of faith” in secular nationalism. While he details this process in five steps in the article [@juergensmeyerWorldwideRiseReligious1996a], it is clear that, contrary to popular belief, religious practices made a remarkable comeback with the dawn of a new millennium and, even more intriguingly, a resurgence in religious violence became obvious in numerous regions of the world [@kaplanWavesPoliticalTerrorism2016].
+
+$\qquad$ In this context, the 9/11 attacks can be seen as a prime example of an emerging pattern in faith-based violence accompanied by several subsequent attacks and peaked with the ISIS terror organization in recent times. Nonetheless, neither the literature on political violence nor previous studies on terrorism subject make a substantial attempt to investigate this accelerating savagery with an emphasis on the long-standing tension between secularism and religion. Thus, the overarching research question for this study can be conceptualized as: what is the link between secularism and religious terrorism?
+
+$\qquad$ To this end, by confining the scope of the study on the particular context of faith-based terrorism, it is hypothesized that secular democracies have a significant edge in averting religious terror attacks. It is claimed that through ensuring religious security for all members of a community, constitutionally accepted secular notions in these countries secure citizens' rights to practice any faith regardless of what citizens pray for. In exchange, this situation precludes prospective extremist groups from radicalizing moderates and thus gaining sympathy for their activities. In this regard, this research contributes to the current body of knowledge by revealing the distinct advantage that secular democracies possess when confronted with religious terrorism. In the following section, 
+this study's theoretical foundations will be explored along with reviewing the existing literature on the subject.
+
+\newpage
+# State of the Field
+
+$\qquad$ The existing literature on religion and terrorism significantly advanced with the 9/11 Al-Qaeda attacks to the World Trade Centre's twin towers in New York City. Even though a few armed strikes with similar types of means and goals existed prior to the attacks, the 9/11 became a landmark day, which was followed by a steady increase in the number of religious terror incidents later on [@juergensmeyerTerrorMindGod2003]. This surge in faith-based violence, which most notably has been in the form of Islamic radicalization through recent years, has prompted scholars to pay close attention to the relationship between religion and terror. Accordingly, the number of researches conducted on this subject has exploded in the years after the 9/11 attacks [@silkeResearchTerrorism2008]. 
+
+$\qquad$ In this sense, the literature review begins by examining religion's role in politics, with a particular emphasis on domestic and interstate armed religious conflicts. Following that, attention is placed on the causes of religious disputes in order to reveal most widely discussed motivations behind faith-based violence. After this, the prior work on the link between religion and terror will be reviewed. To do this, the third section of this chapter will present an in-depth examination of the phenomena of religious terrorism, analyzing the historical evolution of the concept, the core causes behind faith-based terrorism, and the fundamental gaps in the current literature.
+
+## Religion’s Involvement in Politics
+
+$\qquad$ By having different forms of engagement with politics, for many centuries, religion has been inextricably intertwined with state affairs in a variety of ways. Its broad presence in politics extends from playing an instrumental role in the emergence of the modern state concept to the critical position it held through the creation of national identities and institutional systems across countries [@grzymala-busseWarContractsMedieval2020; @grzymala-busseWhyComparativePolitics2012]. Nevertheless, while religion and politics are intrinsically linked, the academic literature on this subject was largely devoid of scholarship during the late 1970s [@waldMAKINGSENSERELIGION2005]. Wald and Wilcox [-@waldGettingReligionHas2006] attribute this lack of interest in religion in the political science discipline primarily to the prevalence of secularization theory in academia as well as the challenging nature of gathering empirical data concerning the subject. Nonetheless, despite this lack of interest, developments in the second half of the twentieth century, such as the Iran Islamic Revolution combined with the growing political significance of religious actors on the international stage, sparked a renaissance in the field [@akbabaProtestReligionOverview2019].
+
+$\qquad$ One essential strand of the growing literature on the relationship between religion and state affairs concentrates on the violent protests and armed conflicts that are based on theological sources. Even though some researchers, after controlling the effect of certain socio-economic and political factors, find the role of religion as insignificant in armed conflicts [@isaacsFaithContentionExplaining2017; @karakayaReligionConflictExplaining2015], others demonstrate that religion indeed plays an essential part in conflicts that take place particularly in the context of Africa and developing countries [@basedauBadReligionReligion2016; @basedauReligiousFactorsImpact2011; @haynesConflictConflictResolution2009].
+
+$\qquad$ In this regard, Pearce [-@pearceReligiousRageQuantitative2005] argues that religious clashes are more intense comparing to other forms of armed conflicts, and as a contribution to this, Fox [-@foxReligiousWaveReligion2012] demonstrates that the number of religious strife started to grow in importance since the 1970s, which they accounted for the bulk of all domestic disputes in 2002. While Svensson’s [-@svenssonOneGodMany2013] investigation conducted on the specific regions of the Middle East and Africa confirms these conclusions, the Religion and Armed Conflict dataset also draw parallels in line with Fox’s results in the context of interstate disputes [@svenssonDisputesDivineIntroducing2018]. Contrary to these conclusions, Vüllers, Pfeiffer, and Basedau [-@vullersMeasuringAmbivalenceReligion2015]’s research focusing on the same subject in the context of developing countries have puzzling results by noticing that religious conflicts essentially differ by area and time period. Thus, contradictory findings concerning the detrimental factors that influence where and when religious conflicts occur still exist.
+
+
+## The Root Causes of Religious Conflicts
+
+$\qquad$ In this respect, previous literature on the causes of religious conflicts contains differing accounts concerning the factors that contributed to the rise of faith-based armed conflicts. Being influenced by a long-established grievance theory, some accounts contend that religious discriminations have detrimental influences on faith-based violence and demonstrate that ethno-religious minorities who encounter oppression based on their faith have a slightly high probability in the likelihood of violence [@akbabaDoesReligiousDiscrimination2011; @muchlinskiPoliticsEffectsReligious2019]. Along with these results, Basedau et al. [-@basedauDoesDiscriminationBreed2017]’s study exhibits that even though discrimination increases the likelihood of grievances, neither grievances nor discrimination is associated with violence. However, in a later study, Basedau and Schaefer-Kehnert [-@basedauReligiousDiscriminationReligious2019] point out that the state-religion relations under which the related disputes are embedded are a significant factor affecting the probability of armed conflicts.
+
+$\qquad$ Concentrating on the particular facet of state-religion relations as a motivation behind the emergence of armed religious conflicts, Fox and Sandler [-@foxRegimeTypesDiscrimination2003] examined the relationship between political regimes and the probability of religious violence. They contend that anocratic governments had the lowest rate of religious abuse in comparison to democracies and autocracies, while Muchlinkski [-@muchlinskiGrievancesOpportunitiesReligious2014] criticizes their results from a methodological perspective by arguing that the mismatch between their dependent and independent variable led to a miscalculation in their research. Instead, he argues that religious violence is shown to be most prevalent in anocratic regimes characterized by weak and declining state institutions. Bearing this debate in mind, now an in-depth investigation of the phenomenon of religious terrorism will be conducted, including the concept's background, the most widely cited motivations of faith-based terrorism, and the crucial gaps in the existing literature.
+
+## Religious Terrorism: A New Genre in Terrorism Studies	
+
+$\qquad$ In addition to the above-discussed forms of religion’s involvement in politics, with the 9/11 attacks, a new type of theological engagement in the political realm became evident to many. As being a novel genre in terrorism studies, the literature on religious terrorism is developed as a result of an increasing number of works conducted on religiously motivated terror groups and their activities [@juergensmeyerTerrorMindGod2003]. To investigate the evolution of this new genre as well as to compare it to previous surges, Rapoport [-@rapoportFourWavesModern2004] put forth the “waves of terrorism” theory. According to his seminal idea, terrorism is classified into four separate subtypes, each of which is distinguished by its unique means and objectives. Even though Rapoport did not mention precise beginning and end dates for each wave, he instead referred to unique international processes and epochs as certain differentiating temporal times. In this regard, although this theory attracted a high volume of criticisms [@parkerFourHorsemenTerrorism2016; @weinbergEndFourthWave2010], Rasler and Thompson’s [-@raslerLookingWavesTerrorism2009] empirical investigation presents statistical results that confirm Rapoport’s hypothesis. Thus, based on approximate international periods and occurrences in line with Rapoport's four waves of terrorism doctrine, Figure \ref{fig:Figure1} illustrates the temporal relationship between this new kind of terrorism, religious terrorism, and all prior distinct types.
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r Figure1, echo=FALSE, fig.align='center', out.width = '100%', fig.pos="H"}
+knitr::include_graphics("/Users/muhammet/Desktop/timeline.png")
+```
+
+```{=latex}
+\caption{Chronological order of terrorism waves \label{fig:Figure1}}
+\raggedright\textit{Source}: The author's own compliation based on Rapoport (2004).
+\end{figure}
+```
+
+
+
+$\qquad$ Concerning this chronological order of different waves of terrorism based on Rapoport’s [-@rapoportFourWavesModern2004] theory, there are a couple of essential points that needs further attention for the sake of clarity. For instance, the anarchist wave was dominant in the last quarter of the nineteenth century as a response to failures of political reforms across European states, particularly in Russia. Following this, the anti-colonial wave commenced in the aftermath of the First World War when the awakening nationalist movements used terrorism as a mean to gain independence from colonial powers [@rapoportFourWavesModern2004]. When the tensions during the Cold War escalated drastically, the competition in the international sphere translated into terrorism which consequently led leftist groups to use violence mainly in the forms of hijackings and kidnappings for the sake of their ideology [@rapoportFourthWaveSeptember2001]. Finally, as a result of this chain of processes, the 9/11 marked a unique date that constituted the peak of the religious wave [@rapoportFourthWaveSeptember2001]. 
+
+$\qquad$ Thus, the fourth wave of terrorism, dubbed religious terrorism, began with the growing engagement of religion in politics, which gained prominence in particular with the Iranian Islamic revolution. While this new wave has specific aims and means that set it apart from prior waves [@rapoportTerrorismGlobalWave2017], Table \ref{tab:mtcars3} compares its unique characteristics to those of other kinds based on Gregg [-@greggDefiningDistinguishingSecular2014]’s classification. 
+
+\setstretch{1}
+
+```{r mtcars3, fig.cap = "Gregg's classification of different types of terrorism", echo=FALSE, fig.align='center', out.width = '70%', warning=FALSE,error=FALSE, message=FALSE}
+
+
+library(knitr)
+library(dplyr)
+library(kableExtra)
+
+data <- data.frame(c("Left-Wing Terrorism","Right-Wing Terrorism",
+                     "Ethnic-Seperatist Terrorism","Religious Terrorism"),
+                   c("Anarchist/Marxist/Socialist", "Racist/Fascist/Nationalist",
+                     "Dispel foreign occupying force-Create ethnically independent state",
+                     "Apocalyptic and Create Religious State/Government"),
+                   c("Red Brigades-Colombian ELM", "Ku Klux Klan-Neo Nazis","Irgun-IRA",
+                     "Aum Shinrikyo-Hamas"))
+
+names(data)[1] <- "Types of Terrorism"
+names(data)[2] <- "Defining Goals"
+names(data)[3] <- "Examples"
+
+
+kbl(data,
+    caption = "Gregg's Classification",
+    align = c("c","c","c")) %>% 
+  kable_styling(latex_options = c("hold_position","scale_down"), 
+                full_width = F) %>%
+  row_spec(0,bold=TRUE) %>%
+  row_spec(4, bold = T, color = "red") %>%
+  column_spec(2, width = "15em") %>%
+  footnote(general = c("\\\\textit{Source}: The author's own compliation based on Gregg (2014)."),
+           general_title = "",
+           escape = FALSE)
+
+
+```
+
+
+\setstretch{2}
+
+$\qquad$ According to Gregg [-@greggDefiningDistinguishingSecular2014]’s categorization, as entitled “the fourth wave”, religious terrorism is distinguished from earlier forms of terrorism by its primary objective of establishing a religious state/government. In this new genre, the apocalyptic state of nature has a comprehension of a continuing conflict between good and evil, which consequently causes its supporters to wage war against the infields in order to build a religious government that will permit peace and stability on earth forever [@greggDefiningDistinguishingSecular2014].
+
+$\qquad$ Apart from its distinctive means and goals, reviewing the previous studies on the concept of religious terrorism reveals that the initial literature on the subject has encountered considerable difficulties. In addition to the existing disputes on the methodological and conceptual aspects of the terrorism phenomenon itself [@richardsConceptualizingTerrorism2014; @silkeDevilYouKnow2001], the definitional debates around this new form of terrorism became a significant impediment for further studies conducted on this subject [@gunningWhatReligiousReligious2011]. Nevertheless, numerous foundational works describing the goals, motivations and means germane to religious terrorism were published since the 9/11 attacks [@crenshawDebateNewVs2009; @hoffmanTerrorism2006; @juergensmeyerTerrorMindGod2003].
+
+$\qquad$ A close examination of the existing studies on religious terrorism unveils that some research patterns in this subgenre are parallel to the general literature on the terrorism phenomenon. For instance, along with studies that examine the causes of terrorism with regard to psychological and socio-economic factors [@freytagOriginsTerrorismCrosscountry2011; @kruegerEducationPovertyTerrorism2003; @piazzaRootedPovertyTerrorism2006; @victoroffMindTerroristReview2005], several studies investigate the links between religiously motivated terrorism and economic, psychological or demographic factors [@schbleyCommonProfileReligious2006; @schbleyDefiningReligiousTerrorism2003; @schbleyTornGodFamily2000; @silkeHolyWarriorsExploring2008]. While the latter line of inquiry contains contradictory results on the causes of religious terrorism, like the former literature on the general terrorism phenomenon, neither of these strands of work, as a result, establishes a robust association between different possible determinants and the emergence of terror events. 
+
+$\qquad$ Nevertheless, apart from this similarity, the literature on religious terrorism suffers from a cross-country analysis. A variety of research existing in the literature are conducted either based on specific religious terror organizations [@bymanQaedaIslamicState2015; @hansen-lewisUnderstandingDaeshEconomy2015; @mccantsISISApocalypseHistory2016; @sedgwickAlQaedaNatureReligious2004] or based on particular country contexts [@agbiboaNoRetreatNo2013; @murphyPakistanJihadMaking2009; @schbleyTornGodFamily2000]. As another similar shortcoming, some studies focus merely on specific types, such as Islamist or jihadist terrorism [@piazzaRootedPovertyTerrorism2006; @sagemanUnderstandingTerrorNetworks2004]. Nonetheless, as parallel to these shortcomings, previous studies in this genre have largely ignored the connection between political regimes and religious terrorism [@henneTerrorismReligionOverview2019].
+
+$\qquad$ Contrary to the literature regarding the conditioning effect of political regimes on terrorism [@bogaardsKinderGentlerSafer2020; @chenowethTerrorismDemocracy2013; @magenFightingTerrorismDemocracy2018; @wilsonAutocraciesTerrorismConditioning2013], we know little about the relationship between different state types and religious terrorism to date. Moreover, few studies focus on why some states particularly suffer from religious terrorism while others do not experience this phenomenon by pondering the specific features that can be attributed to states [@saiyaExplainingReligiousViolence2014; @saiyaReligionStateTerrorism2019]. One of the rare studies Saiya [-@saiyaBlasphemyTerrorismMuslim2017] demonstrates a strong connection between the existence of blasphemy rules and religious terrorism. While this work merely confines Muslim countries and cannot be generalizable to other contexts though, on another occasion, he conducts an empirical analysis concerning the relationship between religious discrimination and the occurrence of religious terrorism [@saiyaReligionDemocracyTerrorism2015]. His results indicate that religiously free nations are much less prone to religious extremism and do not promote it. 
+
+
+$\qquad$ In this regard, this thesis will concentrate on one of the topics that the existing literature has not yet appropriately examined by employing a cross-country analysis which an in-depth case study of Turkey will follow. The relationship between religious terrorism and state-level secularism is aimed to be explored by arguing that the latter can be a preventative tool against the former. As a long-established phenomenon, secularism's origins go far back historically and have different types, such as exclusive versus inclusive or passive versus assertive secularism [@kettellSecularismReligion2019; @kuruPassiveAssertiveSecularism2007]. Yet, secular states have two distinct features in the most basic terms: separating state laws from religious rule and declaring neutrality towards all faiths existing in society [@kuruAnalyzingSecularismHistory2009; @stolzSecularizationSecularitySecularism2019]. Therefore, it is contended that by providing religious freedom equally to all kinds of belief systems, secular states permit religious groups to express their will through democratic means. This begets them an effective position in the fight against religious terrorism by impeding the growth of potential extremist organizations. In the following section, the theoretical and analytical frameworks behind this proposition will be analyzed in detail.
+
+
+\newpage
+# Theoretical Conceptions and Analytical Framework
+
+$\qquad$ The purported theoretical framework on the idea of secularism as an antidote to religious terrorism is based upon the long-established theory of inclusion and moderation thesis that has been most notably applied to the cases of Islamic parties [@al-ananiInclusionModerationThesisMuslim2019; @buehlerRevisitingInclusionmoderationThesis2013; @jaffrelotRefiningModerationThesis2013; @nasrDemocracyIslamicRevivalism1995; @schwedlerFaithModerationIslamist2006; @somerDoesItTake2011; @wickhamPathModerationStrategy2004]. Although a few other studies have applied this theory in other contexts as well [@kalyvasCommitmentProblemsEmerging2000; @kalyvasRiseChristianDemocracy1996; @lewisInclusionModerationThesisRepublican2019], the core tenets of this idea stretch all the way back to the debate in the early 1910s about the transformation of socialist parties to more representative structures [@michelsPoliticalPartiesSociological1966; @tepeInclusionModerationThesisOverview2019]. In its basic sense, the inclusion and moderation thesis is predicated on the premise that competitive democratic processes constrain extremist ideas by turning radical organizations into more compromising ones. Thus, when fundamentalist parties are allowed to compete in elections, the theory suggests that political mechanisms and compromises pull them away from the edges of the political spectrum and these parties become situated in positions that are more accessible to larger groups of people [@tepeInclusionModerationThesisOverview2019].
+
+$\qquad$ In this regard, despite the critiques leveled at the theory for many years, its implementation in a variety of contexts, including democratization processes, has garnered considerable interest [@huntingtonThirdWaveDemocratization1993]. However, the theory's application to the subject of religious terrorism has received little attention in the existing literature. Relying on the main postulations of inclusion and moderation thesis as a springboard, this chapter will explain how secularism is an effective instrument for combating religious terrorism, which will also serve as the analytical framework for this study. To this goal, the first section will explore the Inclusion and Moderation thesis’s central premises along with the criticisms brought against it. Following this, in line with the theory's fundamental principles, the analytical framework that will be utilized in the rest of the thesis will be explained. 
+
+
+## Inclusion and Moderation Thesis: A Brief Account
+
+$\qquad$ To begin with, as a long-established theory explaining the transition of extreme groups or political parties into democratic systems, the inclusion and moderation theory has different accounts of the specific meaning of moderation, which Somer [-@somerModerationReligiousSecular2014] claims that it varies depending on the context and time period. Despite this ambiguity, Mecham and Hwang [-@mechamIslamistPartiesPolitical2014] classify moderation based on ideological, behavioral and strategic domains, while Schwedler [-@schwedlerCanIslamistsBecome2011] indicates three main models in which inclusion can result in moderation: the behavioral moderation of groups, the ideological moderation of groups and the ideological moderation of individuals. Even though such different conceptualizations exist in the literature, the median voter theorem’s logic is central to the theory’s main assumptions. According to Tepe, the rationale is as such:
+
+\setstretch{1}
+>>the inclusion-moderation model postulates that “extreme,” “radical,” or “uncompromising” factions or parties […] fail to garner support […] because of the overall distribution of the voting public’s views. Once included in the political system, such parties are forced to move toward the center of the political spectrum to broaden their appeal; they can do so by readjusting their inflexible views. Thus, the process hinges on the overall positions of the electorate, the opportunity structure, and electoral incentives in the system that reward moving away from strictly held positions. [-@tepeInclusionModerationThesisOverview2019, 3]
+
+\setstretch{2}
+$\qquad$ Therefore, in the simplest possible words, the inclusion and moderation thesis is a logical extension of the median voter theorem, which contends that to attract the median voter, political parties, including radical ones, will lean toward the center and, thus, the extreme groups will be suppressed in the system intuitively [@downsEconomicTheoryPolitical1957]. However, it should also be noted that, in these contexts, the 'laws of the game' are well defined, meaning that the incentives for political participation are transparent and accessible to all groups in society, including religious ones, which leads fundamentalist groups to curb their extreme ideas [@yadavUnderstandingWhatIslamists2010].  
+
+$\qquad$ In this respect, although the theory seems to be consequential in its arguments, a couple of criticisms directed towards the inclusion and moderation theory exist in the literature. For instance, Tepe [-@tepeInclusionModerationThesisOverview2019] contends that this approach has thick assumptions, such as it presupposes that religious groups act uniformly and always seek to maximize their electoral gains to implement their policy agendas. Furthermore, while some argue that context is important for moderation to occur in accordance with the theory's expectations [@ezrowWhenExtremismPays2014], Buehler [-@buehlerRevisitingInclusionmoderationThesis2013] points out the detrimental role that the critical external elements play on political parties in this process. Nonetheless, among all other criticisms, Freer’s [-@freerExclusionmoderationGulfContext2018] account on Muslim Brothers in Kuwait and Cavatorta and Merone's [-@cavatortaModerationExclusionJourney2013] study on Tunisian Ennahda are the most crucial ones which, as contrary to the thesis’s predicaments, the religious groups in both cases became moderated through being excluded from the system itself. 
+
+$\qquad$ While the Kuwait and Tunisia cases might seem to constitute fatal contradictions to this study’s argument, which is an extension of the inclusion and moderation thesis in the context of religious terror groups, the following section will primarily delineate the causal mechanism proposed between constitutionally accepted secular notions and the lack of religious terrorism, which will serve as the analytical framework. This will enable to demonstrate why such cases cannot constitute viable counterarguments in the case of religious terrorism.
+
+## Analytical Framework
+
+$\qquad$ As mentioned in the previous section, strong criticisms deriving their power from the case studies of Muslim Brothers in Kuwait and Ennahda party in Tunisian context exist in the literature, posing serious counter arguments to the study’s central premises. To clarify the purported causal mechanism in detail and eliminate the prospective objections, the idea of secularism as an antidote to religious terrorism will be analyzed based on the principles of the inclusion and moderation thesis. Following this, a full discussion will be offered as to why the Tunisia and Kuwait situations cannot provide major objections to the causal process established in this study.
+
+$\qquad$ To begin with, this study’s analytical framework is predicated on the proposition that constitutionally accepted secular notions pave the way for the separation of religious and political affairs. By this way, these clauses avert political authorities to suppress any kind of religious factions on the ground of their sect. Furthermore, such clauses facilitate all faith groups to participate in decision-making processes as equal stakeholders, since in secular countries, no group can be discriminated against in political processes based on its convictions. Thus, as no religious cult is upheld and everyone is equal before the law regardless of their faith, even though political contradictions might occur with regard to religious practices, legally recognized secular notions beget the resolution of potential contradictions through democratic means. By this way, secular countries obtain a distinct advantage in settling faith-based tensions thanks to the separation of religious and state affairs. 
+
+$\qquad$ Accordingly, as the political and legal rights of all types of sects are secured through constitutional amendments in secular countries, no faith-based organization needs to resort to political violence either to protect or to practice its own way of life. This absence of a necessity for violent methods eventually obstructs potential extremist groups’ ability to manipulate moderates and garner support for the sake of protecting religious practices. Therefore, the inclusion of all faith-based groups, through guaranteeing their right to religious practices, yields countries a distinct advantage in inhibiting religious terrorism. Figure \ref{fig:causal} illustrates the asserted causal mechanism in this regard.
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r causal , echo=FALSE ,fig.align='center', out.width = '100%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/causal.png")
+
+```
+
+```{=latex}
+\caption{Causal Mechanism \label{fig:causal}}
+\raggedright\textit{Source}: See text.
+\end{figure}
+```
+
+
+$\qquad$ At this point, it should be noted that, while the original inclusion and moderation thesis contends that electoral concerns are the primary motivator for extremist groups to moderate, the causal process in this study asserts that legal protection of religious rights, which can be delivered through constitutionally recognized secular concepts, is the primary tool that motivates potential fundamentalists to cease violence. Thus, rather than electoral benefits, it is argued that the constitutional protections afforded to religious organizations are sufficient to deter religious violence. As no faith-based clique would resort to violence in such an atmosphere, the prospective breeding ground for extremism will be stifled, and religious terrorism will be averted.
+
+$\qquad$ There are several essential assumptions existing in this causal mechanism. First of all, along with Hoffman [-@hoffmanTerrorism2006], it is assumed that terrorism is a political act. This is essential for the causal process as it is presumed that actors participating in religious terror activities conduct their actions to become more visible in the public sphere. In other words, while religion plays a significant role in their motivation, it is argued that religious terror organizations employ terrorism to secure political concessions necessary to preserve their particular way of life. Thus, their positions are bolstered in circumstances when religious oppression occurs in the public sphere, since they provide possible justifications for individuals to resort to violence in the political realm in order to get concessions necessary to protect their distinctive way of life.
+
+$\qquad$ Along with this premise, it is also affirmed that constitutionally accepted secular notions provide concrete guarantees to every individual in society to pursue their religion by detaching faith from politics. While it might be a thick assumption in the sense that various kinds of secularism exist across countries [@kuruPassiveAssertiveSecularism2007], secular governments, in their simplest form, declare neutrality against all religions represented in society [@stolzSecularizationSecularitySecularism2019]. Therefore, even though the excessive forms of secularism might envy religious practices and become an impediment against the integration of heterogeneous societies [@freedmanSecularismBarrierIntegration2004], to the best of the knowledge, there is no previous demonstrated link between the exclusionary version of secularism and any type of terrorism, included but not limited to religious terrorism. 
+
+$\qquad$ In this respect, one can also postulate the present challenges against the inclusion and moderation thesis as in the cases of Kuwait and Tunisia [@cavatortaModerationExclusionJourney2013; @freerExclusionmoderationGulfContext2018], which is mentioned briefly [Section 3.1][Inclusion and Moderation Thesis: A Brief Account]. To recall their account, both authors pinpoint the case studies in which the exclusion of extremist groups, not their inclusion into the democratic systems, lead to their moderation. While their arguments seem to generate serious counterarguments to the inclusion and moderation thesis, they cannot constitute significant obstacles for this study as in both cases, states are ruled heavily under a particular religion’s law. 
+
+$\qquad$ In addition to that, it should also be noted that the asserted causal mechanism only extends to cases where the assumptions that are explored in detail above exist. Thus, in instances which external factors play important roles, such as in the Afghan context during and the aftermath of the Soviet invasion [@attewellFactoryFieldUSAID2018; @johnsonUnderstandingTalibanInsurgency2007], the causal mechanism cannot be operationalized as, in these circumstances, religious terror activities are not originated solely from the high tensions between local people whose faiths are surpassed and the central political authorities. In cases like Afghanistan, there might be different motivations behind religious terror groups to be active due to the different contextual circumstances, such as preventing the country's invasion or punishing governments who collaborated with the so-called infidels. For instance, on a similar research subject, after controlling the impact of several economic development, infrastructure, geographic, security, and cultural factors, Piazza [-@piazzaOpiumTradePatterns2012] finds that opium production is a more reliable predictor of terrorism comparing to other potential causes in the case of Afghanistan. Furthermore, in these incidents, faith-based terror groups might even be manipulated by third parties for the sake of political or economic interests [@findleyRethinkingThirdPartyInterventions2006; @reuvenyAfghanistanWarBreakdown1999]. Thus, in cases similar to Afghanistan in which external parties are involved in the conflicts by manipulating pressures on religious practices and turning them into means to rally the masses for the sake of their different political goals, the purported causal mechanism cannot be operationalized. 
+
+$\qquad$ To summarize, this part delves into the analytical framework of this study in detail by referencing to the study's major assumptions. Additionally, alternative rebuttals to the alleged causal process, such as in the case of Kuwait and Tunisia, are being considered. Even though marginalized groups are moderated through their exclusion from they, these cases cannot constitute serious challenges as they are ruled heavily under a particular religion's law. Therefore, the following chapter will examine the principles of prospective research design in order to assess the validity of the causal process described in this section.
+
+\newpage
+# Research Design
+
+$\qquad$ On the basis of the causal mechanism discussed in detail in [Section 3.2][Analytical Framework], in this section, the research design together with its limitations and pay-offs will be elucidated. To this purpose, the dependent variable for this study is the religious terror groups and their activities, which will be measured by the frequency of their attacks and the number of killed people as a result of these attacks. To detect religious terror groups, the “Extended Data on Terrorist Groups (EDTG)” dataset [@houIntroducingExtendedData2020], which classifies terrorist organizations’ ideological motivations according to perpetrator groups' political stance based on the convention of Jones and Libicki [-@jonesHowTerroristGroups2008] will be used.
+
+$\qquad$ In this regard, there are two primary reasons to employ the EDTG dataset in this study. First of all, it is the largest dataset, to the best of the knowledge, that classifies terror groups according to their ideological perspective. Furthermore, while this dataset includes groups that ceased their operations or maintained to function between 1970 and 2016, as another convenient feature, the EDTG data is tied to the Global Terrorism Database (GTD) [-@GlobalTerrorismDatabase2020a], which is the most comprehensive dataset, as far as one concerns, with regard to listing all particular terror events along with their details, such as the number of causalities and exact coordinates of attacks. This will allow to observe the specific events that were perpetrated by the religious terror groups coded in the EDTG dataset. Thus, as the dependent variable for this study, the intensity of religious terrorism will be explored by inspecting the frequency of attacks and the number of people killed as a result of these incidents.
+
+$\qquad$ The primary independent variable that is employed in this study is the existence of secular notions in countries' constitutions. For this purpose, Religion and State (RAS 3) dataset, which covers all the religious regulations embedded in 117 countries' constitutions between  1990 and 2014, is utilized [@foxSecularReligiousCompetition2016]. In line with the independent variable, RAS 3 dataset contains a particular variable, *Separation of Religion and State*, which probes constitutionally recognized religious clauses across countries and classify them on 3-level scales, 0: "The State has no official religion", 1: "The State has multiple established religions", 2: "The State has one established religion".  
+
+$\qquad$ In addition to operationalizing “Separation of Religion and State” variable as the primary independent factor, the impact of secularism along with two other variables in the RAS dataset is controlled. To this end, *Official Support* variable which measures the state's formal relationship with religion and contains several codings for states with and without official religions is used. To measure the impact of state’s specific hostility or negative attitude towards religion, this variable is aggregated into a dichotomous format in which 1 represents the existence of either specific hostility or negative attitude of the state and 0 refers to the lack of such clause. Additionally, for the same purpose of controlling “Separation of Religion and State” impact, *Restrictions on Religious Political Parties* variable variable is used. This variable has four levels; 0: “No restrictions”, 1: “Slight restrictions including practical restrictions or the government engages in this activity rarely and on a small scale”, 2: “Significant restrictions including practical restrictions or the government engages in this activity occasionally and on a moderate scale”, 3: “The activity is illegal or the government engages in this activity often and on a large scale”. 
+
+$\qquad$ This research also includes several additional variables to control the robustness of the purported claim. To check the impact of countries’ economic development, *Logged GDP per Capita* variable which is taken from the World Bank DataBank [-@DataBank2021] is used. Accordingly, the robustness of relationship between the main independent and dependent variable is controlled through utilising countries’ *Military Spending* and *Literacy Rate*, in which the data are incorporated from the World Bank [-@DataBank2021]. In light of previous discussions on the relationship between democracy and terrorism, the impact of countries' democratic levels on religious terrorism is incorporated into the study by utilizing the Polity V dataset's [-@marshalPOLITY5PoliticalRegime2020] *Combined Polity Score*. This score is measured by subtracting countries' autocracy scores from democracy scores and ranges from -10 (Strongly Democratic) to +10 (Strongly Autocratic). Lastly, to adjust the countries state capacities, *State Fragility Index* [-@marshallStateFragilityIndex2018], which ranges from 0 (No Fragility) to 25 (Extreme Fragility) is used.
+
+$\qquad$ Finally, to ascertain the generalizability of the results, the data is subsetted to only Muslim majority countries. To this end, since, to the best of the knowledge, no longitudinal dataset clarifying countries’ population distribution in terms of religious preferences exists, only the countries that are members of the Organization for Islamic Cooperation are included. In total, these countries amount to 57.
+
+## Limitations of the Project and the Pay-offs
+
+$\qquad$ For this study, there are certain constraints and pay-offs to this study. To begin with the former, main emphasis should be paid to the different meanings of secularization and secularism which have significant repercussions for the study’s scope. Following Castle and Schoettmer’s [-@castleSecularismPolitics2019] study, it is evident that different authors have varying understandings concerning secularism and secularization. To avoid confusion, Casanova’s [-@casanovaSecularSecularisms2009] classification, which defines "secularization" as an analytical interpretation of contemporary world-historical events and "secularism" as a worldview is adhered in this study. In light of this distinction, it should be noted that the concept of “secularism” instead of “secularization” is employed as main unit of analysis in this study since the latter denotes a long-term process whose relationship to religious terrorism is difficult to analyze and not compatible with the purported causal mechanism.
+
+$\qquad$  In this regard, following Dobbelaere's [-@dobbelaereSecularizationAnalysisThree2004] and Roberts and Yamane's [-@robertsReligionSociologicalPerspective2016] classifications,the notion of secularism can be explored at three-levels which are, society and language as the macro-level, organization at the state as the mezzo-level, and individual as the micro-level. The use of the mezzo-level strategy in this study is largely motivated by the causal process discussed in the previous chapter. By separating religious and state affairs, it is argued that secular states prevent potential extremists to resort violence by using religious values for the sake of political concessions. Thus, the main unit of analysis to examine secularism should be the state-level for this study.
+
+$\qquad$ Along with this situation, the reason for not to investigate the link between religious terrorism and other forms of secularism is a matter of data availability. To the knowledge, no dataset exists at either the societal or individual level. Even though the World Values Survey (WVS) data [-@inglehartWorldValuesSurvey2020] contains some information on the societal level, it does not cover as many countries as the other variables in this study. In addition to that, in terms of temporal limitations, WVS is not compatible with the RAS 3 dataset as well. Thus, since using this data requires drastically limiting the study's spatial and temporal scope, it is decided not to check the hypothesis’s compatibility with regard to other forms of secularism.
+
+$\qquad$ As another constraint for the study, the numerous datasets that are aimed to use span slightly different periods. For instance, in order to operationalize state-level secularism, the RAS 3 dataset, which spans the year 1990 and 2014 is planned to use. Even though EDTG, Polity and GTD datasets cover a broader time period, the variable of “State Fragility Index” is likewise restricted to a shorter time period. Considering the potential hurdles that might arise as a consequence of these temporal differences and have a significant influence on the robustness of the statistical conclusions, it is decided to put a temporal scope limitation by confining the study to years between 1990 and 2014.^[As an exception to this rule, some of the statistical models in this study span the years 1995–2014 due to the availability of the "State Fragility Index (1995-2014)".]
+
+$\qquad$ Lastly, and most importantly, this study does not differentiate terrorism based on a classification of domestic and international types. Even though some of the previous studies have such distinctions [@qvortrupDomesticTerrorismDemocratic2013], the critical unit of analysis for this research is the base country of religious terror organizations, and their activities is measured by the number of attacks that they precipitate and the number of people killed as a result of these attacks.
+
+$\qquad$ In this regard, as one of the most fundamental pay-offs of the study, it is anticipated to find a robust relationship between state-level secularism and religious terrorism. As mentioned before, while the relationship between secularism and religious terrorism has never been examined, if this study can demonstrate a significant role of state-level secularism to prevent religious terrorism, it can have vital consequences on designing counter-terrorism policies, particularly against religious terrorism.  
+
+$\qquad$ Thus, bearing the research design for the study along with its limitations and pay-offs, in the next section, a preliminary geospatial analysis of religious terror groups will be conducted. Following this, using a large-N statistical analysis via Kruskal Wallis H test and negative binomial regression, the purported relationship between secularism and religious terrorism will be tested. By these steps, it is anticipated to demonstrate a statistically significant impact of constitutionally accepted secular norms on restraining the occurrence of religious terrorism. Following these stages, an in-depth case study of Turkey will be performed to demonstrate how secularism contributes to the suppression of religious terrorism by operationalizing the causal process.
+
+
+\newpage
+# Empirical Investigation
+
+## Preliminary Geospatial Analysis
+
+$\qquad$ In this section, a preliminary geospatial analysis using the EDTG data is performed to explore the geographical distribution of religious terror groups together with the frequency of their attacks. To this end, firstly the EDTG dataset is subsetted based on its *“rel”* column, which specifies whether or not a particular terror group in a row is classified as a religious terror organization. This step resulted in the identification of 203 distinct religious terror groups operating in 42 different countries. While certain groups might be coded as having more than one country of origin in the *“base”* column of the EDTG, only the first one is chosen to illustrate the geographical spread of religious terror organizations. In addition to this, the *“base”* columns for two organizations are updated to “Palestine” instead of “West Bank/Gaza” in the original dataset due to the availability of geographical location data. Thus, Figure \ref{fig:map_web} illustrates the spatial spread of religious terror groups identified in the EDTG dataset.
+
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r map_web , echo=FALSE ,fig.align='center', out.width = '60%', out.height = '60%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/number_of_terror_groups.png")
+
+```
+
+```{=latex}
+\caption{Number of Religious Terror Groups in Each Country \label{fig:map_web}}
+\raggedright\textit{Source}: The author's own compilation based on the Extended Data on Terrorist Groups (2020).
+\end{figure}
+```
+
+
+$\qquad$ A few striking patterns can be explored in this graph. Most notably, no religious terror organization have been originated in the Latin American region and most of Europe. Along with this, the United States and most Asian nations, except for the southern part of the continent, have a low presence of religious terror group. In terms of the organizations’ base countries, they are primarily originated from the Middle East and North African region. In this regard, the case study of this research, Turkey, has two designated religious terror organizations, which are coded as “People’s Liberation Army of Kurdistan (ARGK)” and “Turkish Hizballah”. 
+
+$\qquad$ After evaluating the geographical distribution of religious terror organizations, in order to ascertain the magnitude of the specific assaults performed by these groups, an attempt is made to establish connections between the EDTG and the GTD. To this end, an inquiry into the GTD dataset is conducted with the names of 203 religious terror groups that were gathered from the EDTG dataset. To keep the analysis straightforward, a crucial decision is taken to include only the groups coded in the *"gname"* column of the specific attacks. In this regard, it should be noted that while the *"gname"* column lists the name of the specific terror organization responsible for the attack, in case there might several groups to which the attack can be attributed, they are specified in the *"gname2"* and the *"gname3"* columns which were ignored for this study.
+
+$\qquad$ As a result of the inquiry, only 153 of the EDTG's 203 groups were recognized in the GTD data. Considering the likelihood that the mismatch occurred as a consequence of punctuation and spacing variations, the “fuzzyjoin” package in the R environment is chosen to investigate the string similarities between the EDTG and GTD group names. For this purpose, the method argument of the “stringdist_join” function in this package is set to the “jw”, meaning the “Jaro Distance”. This resulted in a string similarity score between group names coded in the EDTG and the GTD, ranging from 0 (complete match) to 1 (exact dissimilarity). After subtracting this score from 1 to make it more human-readable, more than 650 matches with 0.7 or higher similarity scores are detected. Following this, the resulting dataset is tidied by doing google searches to identify if the different coded groups in the GTD and the EDTG are identical or distinct. Finally, it is noticed that some groups in the EDTG had slight differences from the GTD due to punction issues or abbreviations, such as “Aum Shinri Kyo” and “Aum ShinriKyo” or “Benghazi Defense Brigades (BDB)” and “Benghazi Defense Brigades”. Distinguishing these minor variations raised the number of terror groups coded both in the GTD and in the EDTG from 153 to 187. Based on these groups’ names, the whole GTD data is subsetted to detect attacks’ date, geographical location and the number of causalities. Therefore, Figure \ref{fig:facetted} displays the spatial and temporal distribution of the terror activities carried out by religious terror organizations between 1970 and 2019. Take note that the size of the bubbles corresponds to the number of people killed in each particular attack.
+\FloatBarrier
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r facetted , echo=FALSE ,fig.align='center', out.width = '70%', out.height = '70%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/facetted.png")
+
+```
+
+```{=latex}
+\caption{Religious Terror Attacks Worldwide \label{fig:facetted}}
+\raggedright\textit{Source}: The author's own compilation based on the EDTG (2020) and GTD (2020).
+\end{figure}
+```
+\FloatBarrier
+
+$\qquad$ These graphs contain many eye-catching trends. Primarily, as previous authors noted [@greggDefiningDistinguishingSecular2014; @juergensmeyerTerrorMindGod2003; @rapoportTerrorismGlobalWave2017], it is evident that religious terrorism is on the rise. While during the 1970s, the number of similar attacks and their size in terms of people killed by these attacks was low, as Figure \ref{fig:facetted} demonstrates, the frequency of religious terror attacks accelerated through time. In addition to that, in parallel to the geographical distribution of religious terror groups^[These groups' names are listed in the Appendix A], religious terror events also concentrate on the Middle East and North Africa region except for some attacks that took place in the Southeast Asia. Therefore, in the following section, Large-N analyses on the relationship between different types of constitutions and the number of religious terror attacks will be conducted to test the relationship statistically.  
+
+## Large-N Analyses
+
+$\qquad$ Following the preliminary geospatial analysis of religious terror attacks’ distributions over the five decades ranging from 1970 to 2019, in this section, a large-N Kruskal Wallis H test between religious clauses in various countries' constitutions and the number of attacks and fatalities caused by these incidents will be performed. To accomplish this, the “SAX” variable from the RAS3 dataset will be used. This variable classifies officially recognized religions according to countries’ constitutions spanning from 1990 to 2014 based on three levels. To this end, similar to what was done in the preliminary review section, the Global Terrorism Database is subsetted by the groups detected as religious terror organizations according to the EDTG data. Furthermore, only took the attacks that took place in between 1990 and 2014 is taken as this corresponds to the same time period in the RAS 3 dataset. After merging these two datasets by omitting NA variables and tidying them in a country-year dyad format, Figure \ref{fig:final} is made to visualize the relationship between the official religious status of countries’ constitutions and the number of attacks as well as the number of killed people in these strikes. 
+
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r final , echo=FALSE ,fig.align='center', out.width = '70%', out.height = '70%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/final_box_plot.png")
+
+```
+
+```{=latex}
+\caption{Box Plot on Constitution Categories vs Number of Attacks and Killed People \label{fig:final}}
+\raggedright\textit{Source}: The author's own calculation based on the Global Terrorism Database (2020), Extended Data on Terrorist Groups (2020) and RAS 3 Dataset (Fox 2016).
+\end{figure}
+```
+
+
+$\qquad$ Before delving into analyzing the plots, it should be noted that each data point in these box plots signifies one country-year dyad entry and is jittered accordingly. In this regard, there are a couple of striking conclusions which can be derived from these graphs. First of all, it is remarkable that religious terror groups do not target countries whose constitutions officially recognize more than one religion. While this can be due to the fact that only one country exists in this category in the RAS3 dataset, namely Finland, the unique nature of this case is worth paying further attention to for future studies. In addition to that, from the above plot, it can be asserted that countries that have one officially recognized religion are exposed to a greater number of attacks and thus lose more people in these attacks. While this supports the initial argument of secularism as an antidote to religious terrorism, a Kruskal Wallis H test analysis is conducted to check this assumption statistically. 
+
+$\qquad$ Concerning the quantitative analysis that is directed for this study, there are some caveats that should be clarified prior to analyzing the results. First of all, the independent variable for this study is whether countries’ constitutions have officially recognized religions. As mentioned above, this data is coded in a factorial format and has three levels. Contrary to this categorical data format that is operationalized as the independent variable, the dependent variables for this study are the number of attacks per year and the number of killed people per year, which are count data. Nevertheless, since a standard Pearson correlation analysis only applies to measure the relationship between continuous variables [@benestyPearsonCorrelationCoefficient2009], this would not be suitable for the present study’s research agenda. Therefore, instead of conducting Pearson’s correlation analysis to check the study's hypothesis, other options had to be considered.
+
+$\qquad$ To begin with, the first possibility that came to the forefront was using the Two-Way Analysis of Variance (ANOVA) test to measure whether the mean differences between secular countries and other types of states are statistically significant or not. Nevertheless, utilizing ANOVA was not suitable for the study since one of the main assumptions in ANOVA claims that the sample data should be normally distributed [@millerjrANOVABasicsApplied1997]. Nonetheless, a careful examination of the sample reveals that the distribution of data points in the dataset is not normally distributed. In addition to that, ANOVA tests assume that the different categorical variables should share a similar amount of variance [@millerjrANOVABasicsApplied1997]. To check the homogeneity of variance in the sample data, used Levene's test which is appropriate to use when the data is not normally distributed, is applied [@gastwirthImpactLeveneTest2009]. Table \ref{tab:mtcars} demonstrates the results. 
+
+```{r mtcars, results='asis', echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.pos="H"}
+library(stargazer)
+library(knitr)
+library(readxl)
+library(car)
+library(rstatix)
+library(kableExtra)
+library(patchwork)
+
+omitted <- read_xlsx("omitted.xlsx")
+
+ab <- leveneTest(number_of_attacks ~ secular_constitution, 
+           data = omitted)
+
+ab1 <- leveneTest(total_killed ~ secular_constitution, 
+           data = omitted)
+
+knitr::kable(
+  list(ab, ab1),
+  caption = 'Levente Tests for Number of Attacks and Number of Killed People',
+  booktabs = TRUE, format = "latex", valign = 't') %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  footnote(general = c(
+    "\\\\textit{Source}: See text"),
+           general_title = "",
+           escape = FALSE)
+
+```
+
+$\qquad$ While on the left side, the result for the number of attacks per year is listed, the right side indicates the statistics on the number of killed people. As can be seen from the output, the p-value is less than the 0.05 threshold for significance. This implies that the variation in the distribution of the dependent variables are statistically significant and distinct for each of the three groups, which also constitutes another reason for not meeting the ANOVA's criteria to use for the study.
+
+$\qquad$ Among the other remaining options that might be used in the research, one can also argue that the Welch t-test and the point biserial correlation analysis can be used. Nevertheless, since the sample data is not normally distributed and also because these tests can merely be applied in scenarios in which only two categories exist in the data [@tateCorrelationDiscreteContinuous1954], in this case three factors present, this would not be a suitable option as well. Thus, the only option left for the study was the Kruskal Wallis test.
+
+$\qquad$ As a brief information on the Kruskal Wallis H test, it is applied to measure if there are statistically significant effects of an independent variable with more than two groups on a continuous or ordinal dependent variable. As an important caveat for this test, it should be noted that if the groups have the same variance, the test compares medians. Yet, when the groups have different variances, which is the case for this study, the Kruskal Wallis test compares mean ranks for other groups. In this regard, when the Kruskal Tests are conducted for the two scenarios, p-values for each test resulted in less than 0.05, 4.04e-33 for the number of attacks and 8.33e-36 for the total killed people. These scores indicate that statistically significant differences exist between different types of constitutions concerning their relations on the relevant dependent variables. An additional test which was conducted to determine the Kruskal-Wallis test’s effect size by using eta-squared tests indicated small effect sizes of constitution types on the number of attacks (0.0361) and the number of killed people per year (0.0333). Even though the effect sizes are small, Wilcoxon’s pairwise tests are applied to detect which pairwise groups in constitution types have statistically significant differences. Table \ref{tab:pairwise} demonstrates the results.
+
+```{r pairwise, results='asis', echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.pos="H", out.width="%80"}
+library(stargazer)
+library(knitr)
+library(readxl)
+library(car)
+library(kableExtra)
+library(dplyr)
+
+omitted <- read_xlsx("omitted.xlsx")
+
+pwc <- omitted %>% 
+  wilcox_test(number_of_attacks ~ secular_constitution, p.adjust.method = "bonferroni")
+
+pwc2 <- omitted %>% 
+  wilcox_test(total_killed ~ secular_constitution, p.adjust.method = "bonferroni")
+
+long_dt <- rbind(pwc, pwc2)
+long_dt <- as.data.frame(long_dt)
+names(long_dt)[1] <- "Response Variable"
+names(long_dt)[2] <- "Group 1"
+names(long_dt)[3] <- "Group 2"
+names(long_dt)[4] <- "Group 1-N"
+names(long_dt)[5] <- "Group 2-N"
+names(long_dt)[6] <- "Statistic"
+names(long_dt)[7] <- "P Value"
+names(long_dt)[8] <- "P-Adj. Value"
+names(long_dt)[9] <- "Signif."
+
+
+long_dt$`Response Variable`[1] <- "Number of Attacks"
+long_dt$`Response Variable`[2] <- "Number of Attacks"
+long_dt$`Response Variable`[3] <- "Number of Attacks"
+long_dt$`Response Variable`[4] <- "Total Killed"
+long_dt$`Response Variable`[5] <- "Total Killed"
+long_dt$`Response Variable`[6] <- "Total Killed"
+
+long_dt <- long_dt %>%
+  dplyr::select("Response Variable","Group 1","Group 2","Statistic","P Value","P-Adj. Value",
+                "Signif.")
+
+kbl(long_dt[1:6, 1:7], 
+    caption = 'The Wilcoxon’s pairwise tests for Number of Attacks and Number of Killed People',
+    booktabs = T,
+    format = "latex") %>% 
+  kable_styling(latex_options = c("hold_position"), full_width = F) %>%
+  pack_rows("Group 1", start_row = 1, end_row = 3) %>%
+  pack_rows("Group 2", start_row = 4, end_row = 6) %>%
+  footnote(general = c("\\\\textit{Source}: The author's own calculation based on the Global Terrorism Database (2020),", "Extended Data on Terrorist Groups (Hou, Gaibulloev, and Sandler 2020) and RAS 3", "Dataset (Fox 2016)."),
+           general_title = "",
+           escape = FALSE)
+
+
+```
+
+
+
+$\qquad$ As the results demonstrated, even though the effect size is small, the difference between the constitutions which acknowledge no official religion and one official religion is statistically significant for both tests, and this partially confirms the initial hypothesis. Even though whether having constitutionally recognized multiple religions has a positive or a negative effect is not known, the results indicate that constitutions that recognize no religion encounter a smaller number of attacks and fewer killed people by these strikes rather than the constitutions which officially acknowledge one religion. 
+
+$\qquad$ Along with these steps, the sample is also limited to only Muslim majority countries to check the generalizability conditions in the study. As similar to the above processes, first Levene tests are conducted to compare group variances. The p-value is lesser than 0.05 for both the number of attacks and the number of killed people, 2.874e-05 and 0.00262, respectively, meaning that the variances among different groups in the independent variables are statistically significant. Following this, Kruskal Tests are conducted, and the p-values turned out to be again lesser than 0.05, indicating that substantial discrepancies exist in the relationships between various types of constitutions and the relevant dependent variables. The eta-squared tests, which were done for measuring the effect size, pointed out minor effects of the independent variable. Lastly, Wilcoxon’s pairwise tests, which aimed to detect which pairwise groups in constitution types have statistically significant differences, were conducted. Yet, because the data has relatively lots of 0’s in the number of attacks and the number of killed people in the context of Muslim majority countries, the tests could not give statistically robust results. 
+
+$\qquad$ After statistically proving that secular countries have small but robust advantage in the face of religious terror attacks, the investigation is proceeded by conducting negative binomial regression analyses. Through these analyses, the goal is to reveal the exact impact of secularism on religious terrorism by taking several controlling variables into consideration as well. To this end, the descriptive statistics of the variables in the dataset and their correlations with each other is examined. Table \ref{tab:descriptive} illustrates the descriptive statistics.
+
+
+```{r descriptive, results='asis', warning=FALSE,echo=FALSE,message=FALSE, fig.pos="H"}
+library(readxl)
+library(tidyverse)
+library(MASS)
+library(stargazer)
+
+
+finalcombined <- read_excel("finalcombined.xlsx")
+
+names(finalcombined)[3] <- "secular"
+names(finalcombined)[4] <- "statesupport"
+names(finalcombined)[5] <- "restrictiononrp"
+names(finalcombined)[6] <- "numberofattacks"
+names(finalcombined)[7] <- "totalkilled"
+names(finalcombined)[8] <- "military"
+names(finalcombined)[9] <- "literacy"
+names(finalcombined)[10] <- "gdppercapita"
+
+finalcombined <- as.data.frame(finalcombined)
+finalcombined$gdppercapita <- log(finalcombined$gdppercapita)
+
+
+finalcombined$secular <- as.numeric(finalcombined$secular)
+finalcombined$statesupport <- as.factor(finalcombined$statesupport)
+finalcombined <- finalcombined %>% 
+  mutate(hostility = case_when (statesupport == 0 ~ 1,
+                                         statesupport == 1 ~ 1,
+                                         statesupport == 2 ~ 0,
+                                         statesupport == 3 ~ 0,
+                                         statesupport == 4 ~ 0,
+                                         statesupport == 5 ~ 0,
+                                         statesupport == 6 ~ 0,
+                                         statesupport == 7 ~ 0,
+                                         statesupport == 8 ~ 0,
+                                         statesupport == 9 ~ 0,
+                                         statesupport == 10 ~ 0,
+                                         statesupport == 11 ~ 0,
+                                         statesupport == 12 ~ 0, 
+                                         statesupport == 13 ~ 0))
+
+
+final_combined_summary <- finalcombined %>%
+  dplyr::select(secular, statesupport, restrictiononrp,numberofattacks,
+                totalkilled, military, literacy, gdppercapita, polity,
+                sfi, hostility) 
+
+summary <- stargazer(final_combined_summary, type = "latex", digits = 2,
+          label = "tab:descriptive",
+          title = "Descriptive Statistics", 
+          header = FALSE,
+          single.row = TRUE,
+          no.space = TRUE,
+          font.size = "small",
+          covariate.labels=c("Secular Constitutions",
+                             "Restriction on RP",
+                             "Number of Attacks",
+                             "Total Killed People",
+                             "Military Spending",
+                             "Literacy Rate",
+                             "GDP per capita",
+                             "Polity",
+                             "State Fragility Index",
+                             "Specific State Hostility"),
+          column.sep.width = "1pt",
+          summary.stat = c("N", "mean", "sd","min","max","p25","p75"),
+          notes = "\\textit{Source}: The author's own calculation based on several datasets. See text.")
+            
+```
+
+
+
+
+$\qquad$ Based on Table \ref{tab:descriptive}, it should be noted that several variables in this dataset have high variances. In addition to that, some variables, such as "Literacy Rate", have relatively low data points due to missing values. Therefore, neither conducting a multivariate regression analysis nor a poisson regression technique is an appropriate method in this case as they cannot present reliable results due to the distribution of the data. Instead, recalling from Figure \ref{fig:map_web} and Figure \ref{fig:facetted} that most attacks are clustered on certain regions of the world and the dispersion parameters for both the “Number of Attacks” and the “Total Killed People” are high, meaning an overdispersion exists in the data, a negative binomial regression analysis is a more appropriate method.
+
+$\qquad$ In this regard, before going into details of the regression results, to prevent any multicollinearity between the controlling variables, a correlation plot is prepared. Figure \ref{fig:correlation} displays the results. 
+
+\FloatBarrier
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r correlation , echo=FALSE ,fig.align='center', out.width = '80%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/correlation.png")
+
+```
+
+```{=latex}
+\caption{Correlation Analysis \label{fig:correlation}}
+\raggedright\textit{Source}: The author's own calculation based on several datasets. See text.
+\end{figure}
+```
+\FloatBarrier
+
+$\qquad$ As can be seen from Figure \ref{fig:correlation}, “State Fragility Index” is highly correlated with Literacy Index, meaning that they should not be used concomitantly in any of the models. Additionally, another striking conclusion from this figure is the high correlation between "Number of Attacks" and "Number of Killed People" variables which is reasonable considering that the causalities are resulted from these the attacks. 
+
+$\qquad$ Following this correlation analysis among the variables, Table \ref{tab:regression1}, and Table \ref{tab:regression2} demonstrate the results of the binomial regression analyses. 
+
+\newpage
+
+
+
+```{r regression1, results='asis', warning=FALSE,echo=FALSE,message=FALSE, fig.pos="H"}
+library(readxl)
+library(tidyverse)
+library(MASS)
+library(stargazer)
+
+
+
+
+finalcombined <- read_excel("finalcombined.xlsx")
+
+names(finalcombined)[3] <- "secular"
+names(finalcombined)[4] <- "statesupport"
+names(finalcombined)[5] <- "restrictiononrp"
+names(finalcombined)[6] <- "numberofattacks"
+names(finalcombined)[7] <- "totalkilled"
+names(finalcombined)[8] <- "military"
+names(finalcombined)[9] <- "literacy"
+names(finalcombined)[10] <- "gdppercapita"
+
+finalcombined <- as.data.frame(finalcombined)
+finalcombined$gdppercapita <- log(finalcombined$gdppercapita)
+
+finalcombined$secular <- as.numeric(finalcombined$secular)
+finalcombined$statesupport <- as.factor(finalcombined$statesupport)
+finalcombined <- finalcombined %>% 
+  mutate(hostility = case_when (statesupport == 0 ~ 1,
+                                statesupport == 2 ~ 1,
+                                statesupport == 3 ~ 0,
+                                statesupport == 4 ~ 0,
+                                statesupport == 5 ~ 0,
+                                statesupport == 6 ~ 0,
+                                statesupport == 7 ~ 0,
+                                statesupport == 8 ~ 0,
+                                statesupport == 9 ~ 0,
+                                statesupport == 10 ~ 0,
+                                statesupport == 11 ~ 0,
+                                statesupport == 12 ~ 0,
+                                statesupport == 13 ~ 0))
+
+
+finalcombined <- as.data.frame(finalcombined)
+finalcombined$secular <- as.factor(finalcombined$secular)
+finalcombined$restrictiononrp <- as.factor(finalcombined$restrictiononrp)
+finalcombined$hostility <- as.factor(finalcombined$hostility)
+
+
+
+
+
+
+
+finalmodel1attacks <- glm.nb (formula = numberofattacks ~ secular + polity + sfi +
+                                  gdppercapita + military, 
+                                 data = finalcombined,
+                                 na.action = na.omit)
+
+finalmodel2attacks <- glm.nb (formula = numberofattacks ~  restrictiononrp + polity + sfi +
+                                  gdppercapita + military, 
+                                data = finalcombined,
+                                na.action = na.omit)
+
+finalmodel3attacks <-glm.nb(formula = numberofattacks ~ hostility + polity + sfi +
+                                gdppercapita + military, 
+                              data = finalcombined,
+                              na.action = na.omit)
+
+finalmodel4killed <- glm.nb (formula = totalkilled ~ secular + polity + sfi +
+                                  gdppercapita + military, 
+                                data = finalcombined,
+                                na.action = na.omit)
+
+finalmodel5killed <- glm.nb (formula = totalkilled ~  restrictiononrp + polity + sfi +
+                                  gdppercapita + military, 
+                                data = finalcombined,
+                                na.action = na.omit)
+
+finalmodel6killed <-glm.nb(formula = totalkilled ~ hostility + polity + sfi +
+                                gdppercapita + military, 
+                              data = finalcombined,
+                              na.action = na.omit)
+
+
+stargazer(finalmodel1attacks,finalmodel2attacks,finalmodel3attacks,
+          finalmodel4killed,finalmodel5killed,
+          label = "tab:regression1",
+          dep.var.labels=c("Number of Attacks","Number of Killed People"),
+          covariate.labels=c("Multiple Official Religion",
+                             "Single Official Religion", 
+                             "Restriction on Religious Parties(1)",
+                             "Restriction on Religious Parties(2)",
+                             "Restriction on Religious Parties(3)",
+                             "State Hostility",
+                             "Polity V",
+                             "State Fragility Index (1995-2014)",
+                             "Log(GDP per capita)",
+                             "Military Spending"),
+          title = "Regression Results", 
+          omit.stat=c("LL","ser","f"),
+          type = "latex",
+          header = FALSE,
+          no.space = TRUE,
+          float.env = "sidewaystable",
+          notes = "\\textit{Source}: The author's own calculation based on several datasets. See text.")
+
+
+
+```
+
+\FloatBarrier
+
+
+\newpage
+
+
+```{r regression2, results='asis', warning=FALSE,echo=FALSE,message=FALSE, fig.pos="H"}
+library(readxl)
+library(tidyverse)
+library(MASS)
+library(stargazer)
+
+
+
+
+muslimmajority <- read_excel("muslimmajority.xlsx")
+
+names(muslimmajority)[3] <- "secular"
+names(muslimmajority)[4] <- "statesupport"
+names(muslimmajority)[5] <- "restrictiononrp"
+names(muslimmajority)[6] <- "numberofattacks"
+names(muslimmajority)[7] <- "totalkilled"
+names(muslimmajority)[8] <- "military"
+names(muslimmajority)[9] <- "literacy"
+names(muslimmajority)[10] <- "gdppercapita"
+
+
+muslimmajority <- as.data.frame(muslimmajority)
+muslimmajority$gdppercapita <- log(muslimmajority$gdppercapita)
+
+muslimmajority$secular <- as.numeric(muslimmajority$secular)
+muslimmajority$statesupport <- as.factor(muslimmajority$statesupport)
+
+
+
+muslimmajority <- muslimmajority %>% 
+  mutate(hostility = case_when (statesupport == 0 ~ 1,
+                                statesupport == 1 ~ 1,
+                                statesupport == 2 ~ 0,
+                                statesupport == 3 ~ 0,
+                                statesupport == 4 ~ 0,
+                                statesupport == 5 ~ 0,
+                                statesupport == 6 ~ 0,
+                                statesupport == 7 ~ 0,
+                                statesupport == 8 ~ 0,
+                                statesupport == 9 ~ 0,
+                                statesupport == 10 ~ 0,
+                                statesupport == 11 ~ 0,
+                                statesupport == 12 ~ 0,
+                                statesupport == 13 ~ 0))
+
+
+muslimmajority <- as.data.frame(muslimmajority)
+muslimmajority$secular <- as.factor(muslimmajority$secular)
+muslimmajority$restrictiononrp <- as.factor(muslimmajority$restrictiononrp)
+muslimmajority$hostility <- as.factor(muslimmajority$hostility)
+
+
+
+
+
+
+finalmodel1attacksmuslimmajority <- glm.nb (formula = numberofattacks ~ secular + polity + sfi +
+                                  gdppercapita + military, 
+                                 data = muslimmajority,
+                                 na.action = na.omit)
+
+finalmodel2attacksmuslimmajority <- glm.nb (formula = numberofattacks ~  restrictiononrp + polity + sfi +
+                                  gdppercapita + military, 
+                                data = muslimmajority,
+                                na.action = na.omit)
+
+finalmodel3attacksmuslimmajority <-glm.nb(formula = numberofattacks ~ hostility + polity + sfi +
+                                gdppercapita + military, 
+                              data = muslimmajority,
+                              na.action = na.omit)
+
+finalmodel4killedmuslimmajority <- glm.nb (formula = totalkilled ~ secular + polity + sfi +
+                                  gdppercapita + military, 
+                                data = muslimmajority,
+                                na.action = na.omit)
+
+finalmodel5killedmuslimmajority <- glm.nb (formula = totalkilled ~  restrictiononrp + polity + sfi +
+                                  gdppercapita + military, 
+                                data = muslimmajority,
+                                na.action = na.omit)
+
+finalmodel6killedmuslimmajority <-glm.nb(formula = totalkilled ~ hostility + polity + sfi +
+                                gdppercapita + military, 
+                              data = muslimmajority,
+                              na.action = na.omit)
+
+
+stargazer(finalmodel1attacksmuslimmajority,
+          finalmodel2attacksmuslimmajority,
+          finalmodel3attacksmuslimmajority,
+          finalmodel4killedmuslimmajority,
+          finalmodel5killedmuslimmajority,
+          label = "tab:regression2",
+          dep.var.labels=c("Number of Attacks","Number of Killed People"),
+          covariate.labels=c("Single Official Religion",
+                             "Restriction on Religious Parties(1)",
+                             "Restriction on Religious Parties(2)",
+                             "Restriction on Religious Parties(3)",
+                             "State Hostility",
+                             "Polity V",
+                             "State Fragility Index (1995-2014)",
+                             "Log(GDP per capita)",
+                             "Military Spending"),
+          title = "Regression Results for Muslim Majority Countries", 
+          omit.stat=c("LL","ser","f"),
+          type = "latex",
+          header = FALSE,
+          no.space = TRUE,
+          float.env = "sidewaystable",
+          notes = "\\textit{Source}: The author's own calculation based on several datasets. See text.")
+
+```
+
+\FloatBarrier
+\newpage
+
+
+$\qquad$ According to Table \ref{tab:regression1}, which covers statistical data for all nations, having a "Single Official Religion" and a "Restriction on Religious Parties" are the most robust variables for a positive influence on the number of religious terror incidents. In terms of main determinants of number of killed people by religious terror strikes, “Log (GDP per capita)” variable is strong along with the “Restriction on Religious Parties” variable. Yet, interestingly, the fourth model eliminates the influence of a "Single Official Religion" when the dependent variable is changed to "Number of Killed People" instead of "Number of Attacks." Additionally, the variable "State Hostility" has no statistically significant effect on the frequency of religious terror acts. As a consequence of these findings, it can be concluded that the most robust predictor of the number of assaults committed by religious terror organizations is the "Restriction on Religious Parties" variable. While not having a constitutionally recognized religion is a close second, the latter predictor is statistically insignificant, notably for the "Number of Killed People." Therefore, these results partially corroborate the initial hypothesis concerning the advantage of secular countries in inhibiting religious terrorism.
+
+$\qquad$ Parallel conclusions can be drawn based on this analysis's empirical findings for tests conducted exclusively for Muslim majority nations. While having a "Single Official Religion" have a positive impact on the occurrence of "Number of Attacks," "Restriction on Religious Parties" is another significant predictor. Nonetheless, the specific faction of the "Restriction on Religious Parties" variable has a non-significant value this time. In addition to this, "State Hostility" variable in this time became significant yet it has a negative impact on the occurrence of religious terror attacks. 
+
+
+$\qquad$ To conclude, statistical tests conducted in this chapter offered partially supporting results to this study’s central claim on constitutionally secular norms as preventative tools to avert religious extremism. In this regard, the following part will delve into the case study of Turkey to demonstrate how constitutionally recognized secular values can play crucial role in inhibiting religious terrorism based on a real case study. 
+
+\newpage
+
+# An In-Depth Case Study of Turkey
+
+$\qquad$ Contrary to the persistent terror attacks carried out by the PKK organization, a Kurdish separatist group based in the Eastern part of Turkey, religious terrorism has been mostly absent in Turkey. According to the analysis conducted in this study, the country only encountered religious terror attacks for a few times during 1990s with low number of causalities (footnote). Considering Turkey’s Muslim majority population as well as its everlasting struggle against ethnic terrorism, it is contended that the country’s success in preventing religious terror attacks is anchored in its constitutional clauses pertaining to the principle of secularism. It is argued that these norms assured religious organizations in terms of their rights to practice their faith. Therefore, potential faith-based extremist groups could not engender violence in the country as secular principles halt the ground for them to garner support through securing religious freedom for everyone. 
+
+$\qquad$ To fully illustrate the reflection of the purported causal process on the Turkish case, the first part of this chapter will explore the history of secularism in the country with an emphasis on the role of religion in the political sphere. Following this, the causal mechanism that is outlined in [the third Chapter][Theoretical Conceptions and Analytical Framework], which clarifies the process on how constitutionally accepted secular norms play an essential role in preventing religious terrorism will be operationalized in the case of Turkey. Therefore, this in-depth case study is expected to constitute a strong convincing evidence toward the initial hypothesis on the relationship between constitutionally accepted secular norms and lack of religious terrorism. 
+
+## Secularism in Turkey
+$\qquad$ Turkish state, being one of the earliest republics in the Middle East, officially adopted secularism as a constitutional clause in 1937. Even though the secularism principle was not present in the 1924 constitution that was issued in the aftermath of the republic's proclamation, it became one of the fundamental principles for the state following this modification. Article 2 of the 1980 Constitution which was enacted with a referendum in the aftermath of the 1980 coup d’état and is still in existence with minor amendments states the republic’s features as follows;
+
+\setstretch{1}
+
+>>The Republic of Turkey is a democratic, secular and social state governed by rule of law, within the notions of public peace, national solidarity and justice, respecting human rights, loyal to the nationalism of Atatürk, and based on the fundamental tenets set forth in the preamble [@ConstitutionRepublicTurkey1980]
+
+\setstretch{2}
+$\qquad$ As can be seen from this article, the republic's secular nature, along with other distinguishing facets of the state, is explicitly stated in the constitution's preamble. More strikingly, the Article 4 of the Turkish constitution, assures the republic's secular nature with the subsequent sentence;
+
+\setstretch{1}
+
+>>The provision of Article 1 regarding the form of the State being a Republic, the characteristics of the Republic in Article 2, and the provisions of Article 3 shall not be amended, nor shall their amendment be proposed. [@ConstitutionRepublicTurkey1980]
+
+\setstretch{2}
+$\qquad$ Based on these two clauses of the Turkish constitution, it is clear that the Turkish constitution asserts secularism as a fundamental tenet of the state. To fully appreciate the significance placed on the secularism norm for the new state, it is necessary to understand the historical background in which the Turkish state was founded. In this light, it is worth noting that the founding Kemalist elites viewed secularism as a necessary component of their newly established state since they contended that westernization, and hence modernity, was acknowledged via the erasure of Islam from political discourse [@keymanRelationGlobalModernity1995]. Although this line of thought was not peculiar to them and dates all the way back to Ottoman reformist movements, notably the Young Turks era [@azakIslamSecularismTurkey2010], with this new state, Kemalist elites attempted to make a new nation on the ground of Ottoman Empire’s remnants [@ahmadMakingModernTurkey1997]. In this new republic, secularism was adopted as one of the foundation stones to enable modernization and westernization processes to thrive [@mardinReligionSecularismTurkey1981]. To this end, a number of reforms were conducted prior to acknowledging secularism as a constitutional clause in 1937.
+
+$\qquad$ In this regard, the Kemalist reform agenda primarily abolished the Ottoman Sultanate in 1922, signaling the separation of religion and state affairs. While Ottoman heirs were given both the Sultanate and Caliphate titles before this revision, they were only given the Caliphate title thereafter, implying that their positions were merely restricted to religious matters. Along with this alteration, March 3, 1924 became a pivotal date for the new state which three critical revisions were formalized. Notably, the caliphate status, which had existed since the Prophet Muhammed and denoted the leader of all Muslims worldwide was abolished. Additionally, with the formalization of Tevhid-i Tedrisat law, a new educational reform was implemented through removing all medreses and religious education in order to form the Education Union. Lastly, the Ministry of Pious Foundation was eradicated with a law passed at that date as well.
+
+$\qquad$ Following this watershed day of March 3 1924, a series of separate decrees were made to further isolate the separation of religion from different facets of political life. In this context, all religious orders and religious laws, called as Şeriat, were banned in 1925, and a new civil code regulating womens’ place in society was enacted in 1926. While these changes intended to reduce the civilizational gap with the Western world, they also signaled a reformist course taken by this recently established republic in terms of its vision on religious affairs and its reflection on political as well as social realm [@goleSecularismIslamismTurkey1997]. Nevertheless, amid such rapidly developing reforms, the new republic encountered an unexpected religious uprising in the Eastern part of the country led by Şeyh Said of Palu in 1925. According to Lewis [-@lewisEmergenceModernTurkey2002], this was a warning to Mustafa Kemal who was the founder and pioneer of Turkish reforms which consequently led him to accelerate the pace of reforms by making him more cautious regarding the power of spiritual leaders in the Turkish society. Thus, Figure \ref{fig:secularism} illustrates the historical progression of Kemalist reforms toward the recognition of secularism as a constitutional principle in Turkey.
+
+
+
+```{=latex}
+\begin{figure}[h]
+```
+
+```{r secularism, echo=FALSE ,fig.align='center', out.width = '100%', out.height = '120%', fig.pos="H"}
+
+knitr::include_graphics("/Users/muhammet/Desktop/timeline_plot.png")
+
+```
+
+```{=latex}
+\caption{Chronology of Secular Reforms in Turkey \label{fig:secularism}}
+\raggedright\textit{Source}: The author's own compilation.
+\end{figure}
+```
+
+
+$\qquad$ Based on this graph, it can be seen that the newly established republic gradually but consistently undertook reforms to completely separate religion from political affairs. This state of alert in the Turkish republic, being always cautious about the lines separating political sphere from the influence of the faith, has maintained in state bodies meticulously during the following years regardless of varying political parties that held the office [@kuruPassiveAssertiveSecularism2007]. While this situation’s reflections on Turkish politics can be seen on the discussions of headscarf, Imam-Hatip schools and Turkification of Ezan [@zurcherTurkeyModernHistory2004], some also criticize the assumed impartial attitude of Turkish state on its relation vis-a-vis different religious groups in the country [@goleForbiddenModernCivilization1996; @keymanModernitySecularismIslam2007]. As an example to this, Akturk [-@akturkPersistenceIslamicMillet2009a] points out the nation building attempts in the new republic when the Turkish identity is being defined based on a Sunni Muslim background. Accordingly, to illustrate state organs’ collaboration with religious groups, Kalaycioglu [-@kalayciogluDemocracyIslamSecularism2013] refers to the  “Turkish-Islamic Synthesis” idea when the military aimed to use religious practices along with nationalist leanings to counter thriving communist movements in the aftermath of the 1980 coup d’état. Therefore, even though the priority of the Turkish state establishment has always been to separate the impact of religion from the political affairs, there were several occasions when the religion was used for pragmatic purposes.
+
+$\qquad$ Even though a mutually pragmatistic relationship between the state and the religious groups seem to exist in the country, during the 1990s, a resurgence in Islamist movements occurred when the National Outlook movement and the Welfare party started to gain electoral visibility [@onisPoliticalEconomyIslamic1997]. Particularly due to the extreme Islamist ideas of this party’s leader, Necmettin Erbakan, the tensions between Islamists and the state bodies accelerated. Subsequently, the state repression on religious groups increased at this time, which also closely aligns with the emergence of the two religious terror organizations that are detected in the empirical investigation. While this correlation supports the initial claim of this study, the following section will delve into precise success of secular norms in curtailing extremist religious groups’ violent tendencies in the Turkish case by operationalizing the causal mechanism that is examined in detail
+[the third Chapter][Theoretical Conceptions and Analytical Framework]. 
+
+## The Operationalization of the Causal Mechanism 
+
+$\qquad$ The first section of this chapter demonstrated how secular values are embedded in the Turkish constitution with an emphasis on the impact of religion on the political sphere. In this regard, this section primarily aims to demonstrate how the fundamentalist faith-based groups during the 1990s were moderated through legally recognized secular principles which constitutes a supporting evidence toward the central premise of this study. 
+
+$\qquad$ To begin, while the Turkish state has treated religion pragmatically and used it to combat communism, as previously said, this has been a difficult balance for state institutions to maintain. As seen by the escalating persecution of radical Islamist groups during the 1990s, the Turkish state's relationship with religious organisations was purely utilitarian. While this relationship provided a platform for religious groups to cultivate and develop their economic and social standing in the country, it also enabled the Turkish state to contain the existential danger of communism.
+
+$\qquad$ In this sense, the 1990s were an intriguing decade for Turkish society. While religious groups gained prominence in the political arena, which was an uncommon occurrence given the country's history of assertive secular reforms, the state made a concerted effort to keep religion out of the public realm. At this period of heightened political tensions, Turkey also confronted newly emerging religious terror organizations. According to a 1991 study issued by the Turkish Intelligence Organization (MIT) and the Police General Security Directorate, 10 distinct violent religious organizations were identified [@karmonIslamicTerroristActivities1998], with some receiving backing from Iran [@clineOcalanQaidaContinuing2004; @patrickEvolutionIranianInterventionism2007]. While these organizations were predominantly located in the country's southeastern area, they recruited members largely through family connections and local places [@orhanQaedaAnalysisEmergence2010; @unalRecruitmentEnlistmentIndividual2018]. 
+
+$\qquad$ Nevertheless, apart from perpetrating a few attacks, religious terrorism proved ineffective in Turkey, in comparison to its counterparts in other contexts. While some have attributed this achievement to the efficiency of Turkish counter-terrorism efforts, especially the functioning of security forces [@nugentDefeatTurkishHizballah2004], Mardin [-@mardinTurkishIslamicExceptionalism2005] highlights Turkey's Islamic exceptionalism, which he believes has an uniquely peaceful synthesis of Islam and modernity. Nonetheless, along with Aras and Toktaş's [-@arasAlQaidaWarTerror2007] research, this study contends that the country's secular nature begat the political realm to moderate extreme religious organizations by protecting their religious liberties and lessening the need to resort to violence by this way.
+
+$\qquad$ To bolster this idea, several religious parties founded in the 1990s can be demonstrated. Following the 1987 referendum that removed military limitations on civilian politicians and political groups, the Islamic movement made a political comeback likewise other political ideological in Turkey. Nonetheless, they achieved tremendous success this time, paving the path for them to join the governing coalition in 1996. Although this achievement was cut short when the military engaged in civilian affairs in the guise of defending the republic's principles, Turkey's major Islamist movements avoided bloodshed. By abstaining from violence, Islamists in Turkey sought the support of the masses and used democratic methods and channels to secure their rights through the organization of democratic protests and debate platforms. Finally, this process resulted in an unexpected electoral victory in 2002, when the Justice and Development Part (AKP), the reformist branch of the original National Outlook Movement, became the first party.
+
+$\qquad$ In this regard, the Islamist movement's success in Turkey is directly connected to the path that constitutionally recognized secular principles provide to it. By keeping religion separate from politics, these norms ensured Muslims’ right to be treated equally before the law and allowed them to participate in politics. By this way, moderate conservatives did not need to resort to violence which consequently inhibited potential extremists to manipulate them. 
+
+$\qquad$ At this point, while some may argue that the closure of numerous Islamist parties and the pressure on headscarf issue constitutes strong counterarguments, the country's low degree of democracy during these periods should not be overlooked. Thus, while Islamists experienced unjust treatments throughout the 1990s, other groups belonging varying identities such as Kurds and Alevis, also encountered same biased judgements from the state bodies. While this is obviously an undesirable outcome considering its repercussions on political and social life, this also reveals that Islamists were not singled out for discrimination and eliminates such potential biased criticisms.
+
+$\qquad$ In this environment, during the early years of its rule, the AKP garnered a considerable interest and became focal points of debates on Turkish politics. The particular optimism ascribed in the party to find a peaceful synthesis between Islam and politics became the subject of several studies [@somerModerateIslamSecularist2007; @toprakIslamDemocracyTurkey2005]. While some early analyses warned of possible hegemonic paths for political Islam [@onisPoliticalIslamCrossroads2001], several authors discussed the possible pathways of Islamists’ moderation on Turkish politics [@gursesIslamistsDemocracyTurkey2014; @somerDoesItTake2011; @tepeModerationReligiousParties2012; @tepeTurkeyAKPModel2005; @tezcurModerationTheoryRevisited2010]. Recalling the varying types of moderation, these authors generally agree that in the Turkish context, moderation of Islamists had a behavioral shape, implying that the AKP used electoral methods to achieve its political aims. The recent democratic backsliding in the country unfortunately verified their accounts.
+
+$\qquad$ To summarize, it is uncertain if Islamist organizations can achieve long-term ideological moderation in Turkey, which would require them to accept democracy and its values of rule of law and separation of powers. Nonetheless, this does not obscure the reality that, as a result of constitutionally secular standards, Islamists' rights in Turkey, including political rights, were legally protected, allowing them to engage in politics and inhibiting religious terrorism. By doing so, Turkey jeopardizes a critical argument for additional research into how to prevent Islamic extremism, particularly in Muslim majority nations.
+
+\newpage
+# Conclusion
+
+$\qquad$ The 9/11 terror attacks, carried out by the Al-Qaeda organisation and directed at New York City's World Trade Center, astounded the world with its level of cruelty toward civilians. While religious terrorism was not widely examined until then, academics of Political Science and International Relations have placed more importance on the motivations for faith-based terrorism in the aftermath of the 9/11 attacks. While several researches have examined the socio - economic and political motives for this new kind of violence, no previous study has examined the link between secularism and religious terrorism. Thus, by examining this connection empirically and via an in-depth case study of Turkey, this research attempted to close a gap in the literature.
+
+$\qquad$ In this regard, while the empirical results partially corroborate the initial claim on secularism as an antidote to religious terrorism, the case study of Turkey demonstrates that constitutionally secular principles are capable of inhibiting religious terror activities by guaranteeing religious freedom for all members of society. Nonetheless, as a result of this study's findings, certain subjects warrant further investigation. For instance, future work in this subject should take religious diversity into account when interpreting the findings of this study. Additionally, some studies may compare two religious terror groups, one of which continues to exist and the other of which has ceased to exist, in order to understand the primary dynamics that contribute to the termination of these groups.
+
+
+
+\setstretch{1}
+\newpage
+# References
+
+
+<div id="refs"></div>
+\newpage
+\setstretch{1}
+
+# Appendix A
+
+```{r longtable, results='asis', echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.pos="H", out.width="%80"}
+library(stargazer)
+library(knitr)
+library(readxl)
+library(car)
+library(kableExtra)
+library(dplyr)
+
+terrorgroupsnames <- read_xlsx("terrorgroupsnames.xlsx")
+                    
+
+kbl(terrorgroupsnames, longtable = T, booktabs = T,
+     align = c("l","c","c")) %>% 
+  kable_styling(latex_options = c("repeat_header", "scale_down"),
+                full_width = F) %>%
+  row_spec(0,bold=TRUE) %>%
+  column_spec(1, width = "15em") %>%
+  column_spec(2, width = "10em") %>%
+  column_spec(3, width = "10em") %>%
+  footnote(general = c("\\\\textit{Source}: The author's own compilation from the Global Terrorism Database (2020) and", "Extended Data on Terrorist Groups (2020)."),
+           general_title = "",
+           escape = FALSE)
+
+```
+
+
